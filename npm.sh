@@ -1,2 +1,12 @@
 # This is a sample script for using the container to run npm commands.
-docker run -it --rm --entrypoint npm -v $(pwd):/code samherrmann/angular-cli $@
+
+args=()
+[[ $@ == 'start' ]] && args+=('--publish 4200:4200')
+
+docker run \
+  -it \
+  --rm \
+  -v $(pwd):/code \
+  ${args} \
+  --entrypoint npm \
+  samherrmann/angular-cli $@
