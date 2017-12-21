@@ -16,7 +16,7 @@ chmod +x ng.sh
 ```
 
 ### npm
-Since this container is based off of the official node container, it is possible to use this container to also run `npm` commands. Simply create an `npm.sh` script that uses Docker's `--entrypoint` option to run `npm` instead of the CLI:
+Since this image is derived from the official node image, it is possible to use this image to also run `npm` commands. Simply create an `npm.sh` script that uses Docker's `--entrypoint` option to run `npm` instead of the CLI:
 ```sh
 echo 'docker run -it --rm --entrypoint npm -v $(pwd):/code samherrmann/angular-cli $@' > npm.sh
 chmod +x npm.sh
