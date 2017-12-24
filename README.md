@@ -2,27 +2,33 @@
 A Docker image for [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Usage
+1. Create a new Angular CLI project:
 ```sh
 docker run -it --rm -v $(pwd):/code samherrmann/angular-cli new my-app
-cd my-app
+```
+2. Copy the [ng.sh](ng.sh) script into your project's root directory.
 
-# Add a helper script to the project to run the container.
-echo 'docker run -it --rm -v $(pwd):/code samherrmann/angular-cli $@' > ng.sh
-chmod +x ng.sh
-
-# From now on you can just type...
-./ng g module foo
-./ng g component foo
+3. Use the script to execute Angular CLI commands:
+```sh
+$ ./ng.sh g module my-module
+```
+```sh
+$ ./ng.sh g component my-component
 ```
 
 ### npm
-Since this image is derived from the official node image, it is possible to use this image to also run `npm` commands. Simply create an `npm.sh` script that uses Docker's `--entrypoint` option to run `npm` instead of the CLI:
-```sh
-echo 'docker run -it --rm --entrypoint npm -v $(pwd):/code samherrmann/angular-cli $@' > npm.sh
-chmod +x npm.sh
+Since this image is derived from the official node image, it is possible to use this image to also run `npm` commands:
 
-# From now on you can just type...
-./npm install <my-new-lib>
+1. Copy the [npm.sh](npm.sh) script into your project's root directory.
+2. Use the script to execute `npm` commands:
+```sh
+./npm.sh install <my-new-lib>
+```
+```sh
+./npm.sh start
+```
+```sh
+./npm.sh run lint
 ```
 
 ## Development
