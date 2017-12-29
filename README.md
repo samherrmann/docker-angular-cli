@@ -17,7 +17,8 @@ docker run -it --rm -v $(pwd):/code samherrmann/angular-cli new my-app
 ```
 
 ### npm
-Since this image is derived from the official node image, it is possible to use this image to also run `npm` commands:
+Since this image is derived from the official node image, it is possible to
+use this image to also run `npm` commands:
 
 1. Copy the [npm.sh](npm.sh) script into your project's root directory.
 2. Use the script to execute `npm` commands:
@@ -30,6 +31,16 @@ Since this image is derived from the official node image, it is possible to use 
 ```sh
 ./npm.sh run lint
 ```
+
+### Production Projects
+For production projects, I recommend the following:
+
+* Change the `latest` version tag inside the `ng.sh` and `npm.sh` script to
+the actual version of the image (Example: Replace `latest` with `1.6.2`).
+* Check the `ng.sh` and `npm.sh` script into version control.
+
+Following these recommendations ensures that the builds are reproducible by
+always using the same version of the build tools for a given codebase version.
 
 ## Development
 ### Build Image
