@@ -8,4 +8,4 @@ docker run \
   --rm \
   -v $(pwd):/code \
   ${args} \
-  samherrmann/angular-cli $@
+  samherrmann/angular-cli:latest $@
