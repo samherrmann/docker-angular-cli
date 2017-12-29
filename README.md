@@ -33,4 +33,4 @@ Since this image is derived from the official node image, it is possible to use 
 
 ## Development
 ### Build Image
-* Run `./build.sh`
+Run the `./build.sh` script to build an image.
