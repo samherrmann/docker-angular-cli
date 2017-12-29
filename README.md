@@ -10,10 +10,10 @@ docker run -it --rm -v $(pwd):/code samherrmann/angular-cli new my-app
 
 3. Use the script to execute Angular CLI commands:
 ```sh
-$ ./ng.sh g module my-module
+./ng.sh g module my-module
 ```
 ```sh
-$ ./ng.sh g component my-component
+./ng.sh g component my-component
 ```
 
 ### npm
