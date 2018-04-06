@@ -17,7 +17,7 @@ A Docker image for [Angular CLI](https://github.com/angular/angular-cli).
     ./npm.sh run ng g c my-module/my-component
     ```
 
-    You can also use the script to execute `npm` commands:
+    The script can also be used to execute `npm` commands:
     ```sh
     ./npm.sh install <my-new-lib>
     ```
@@ -27,6 +27,29 @@ A Docker image for [Angular CLI](https://github.com/angular/angular-cli).
     ```sh
     ./npm.sh run lint
     ```
+
+### Testing
+Add the following configuration to your `karma.conf.js` to be able to leverage
+Google Chrome in the container for unit testing:
+
+```js
+browsers: ['customChrome'],
+customLaunchers: {
+  customChrome: {
+    base: 'ChromeHeadless',
+    flags: [
+      '--no-sandbox'
+    ]
+  }
+}
+```
+
+Now unit tests can be executed with the following command:
+```sh
+./npm.sh run test
+```
+Test progress and results can be viewed either in the terminal or in a browser at
+`localhost:9876`, where `9876` is the port configured in `karma.conf.js`.
 
 ### Production Projects
 For production projects, I recommend the following:
