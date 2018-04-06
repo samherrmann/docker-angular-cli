@@ -43,6 +43,10 @@ customLaunchers: {
   }
 }
 ```
+Note: The Chrome sandbox needs to be disabled when running inside of a Docker container
+because Chrome's sandbox requires more permissions than Docker allows by default. If
+there is a need to run the Chrome sandbox, then the container must be run with the
+`privileged` flag.
 
 Now unit tests can be executed with the following command:
 ```sh
