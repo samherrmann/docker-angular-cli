@@ -20,4 +20,4 @@ USER node
 RUN npm install -g @angular/cli@$NG_CLI_VERSION
 
 WORKDIR /code
-ENTRYPOINT ["ng"]
+ENTRYPOINT ["npm"]

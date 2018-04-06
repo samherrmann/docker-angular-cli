@@ -9,5 +9,4 @@ docker run \
   --rm \
   -v $(pwd):/code \
   ${args} \
-  --entrypoint npm \
   samherrmann/angular-cli:latest $@
