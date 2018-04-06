@@ -2,6 +2,7 @@
 
 args=()
 [[ $@ == 'start'* ]] && args+=('--publish 4200:4200')
+[[ $@ == 'run test'* ]] && args+=('--publish 9876:9876')
 
 docker run \
   -it \
