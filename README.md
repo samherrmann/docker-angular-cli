@@ -78,3 +78,6 @@ Execute `npm` commands:
 ## Development
 ### Build Image
 Run the `./build.sh` script to build an image.
+
+### Publish Image
+Run the `./publish.sh` script to push an image to Docker Hub.
