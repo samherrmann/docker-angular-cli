@@ -12,6 +12,7 @@ in a container.
 * Ensure that builds are reproducible.
 
 ## Usage
+### One-Time Setup
 1. Create a new Angular CLI project:
     ```sh
     docker run -it --rm -v $(pwd):/code --entrypoint ng samherrmann/angular-cli new my-app
@@ -23,7 +24,7 @@ in a container.
     * Commit it to your version control system.
 
 3. Add the following configuration to `angular-cli.json` to make the app
-   accessible from the browser on the host machine.
+   accessible from the browser on the host machine:
     ```json
       "defaults": {
         "serve": {
@@ -31,52 +32,48 @@ in a container.
         }
       }
     ```
+4. Add the following configuration to your `karma.conf.js` to be able to
+   leverage Google Chrome in the container for unit testing:
 
-4. Use the script to execute Angular CLI commands:
-    ```sh
-    ./npm.sh run ng g m my-module
+    ```js
+    browsers: ['customChrome'],
+    customLaunchers: {
+      customChrome: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox'
+        ]
+      }
+    }
     ```
-    ```sh
-    ./npm.sh run ng g c my-module/my-component
-    ```
+    The Chrome sandbox needs to be disabled when running inside of a Docker
+    container because Chrome's sandbox requires more permissions than Docker
+    allows by default. If there is a need to run the Chrome sandbox, then the
+    container must be run with the `privileged` flag.
 
-    The script can also be used to execute `npm` commands:
-    ```sh
-    ./npm.sh install <my-new-lib>
-    ```
-    ```sh
-    ./npm.sh start
-    ```
-    ```sh
-    ./npm.sh run lint
-    ```
+### Development Workflow
+Execute Angular CLI commands:
 
-### Testing
-Add the following configuration to your `karma.conf.js` to be able to leverage
-Google Chrome in the container for unit testing:
-
-```js
-browsers: ['customChrome'],
-customLaunchers: {
-  customChrome: {
-    base: 'ChromeHeadless',
-    flags: [
-      '--no-sandbox'
-    ]
-  }
-}
+```sh
+./npm.sh run ng g m my-module
 ```
-The Chrome sandbox needs to be disabled when running inside of a Docker
-container because Chrome's sandbox requires more permissions than Docker allows
-by default. If there is a need to run the Chrome sandbox, then the container
-must be run with the `privileged` flag.
+```sh
+./npm.sh run ng g c my-module/my-component
+```
 
-Now unit tests can be executed with the following command:
+Execute `npm` commands:
+```sh
+./npm.sh install <my-new-lib>
+```
+```sh
+./npm.sh start
+```
+```sh
+./npm.sh run lint
+```
 ```sh
 ./npm.sh run test
 ```
-Test progress and results can be viewed either in the terminal or in a browser
-at `localhost:9876`, where `9876` is the port configured in `karma.conf.js`.
 
 ## Development
 ### Build Image
