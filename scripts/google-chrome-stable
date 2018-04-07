@@ -1,0 +1,2 @@
+# See notes in `gogole-chrome` for details on this script.
+/usr/bin/google-chrome-stable --no-sandbox $@

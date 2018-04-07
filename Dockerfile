@@ -14,6 +14,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     apt-get -qqy update && \
     apt-get -qqy install google-chrome-stable=$CHROME_VERSION
 
+COPY scripts/* /usr/local/bin/
+
 # Install Angular CLI
 ARG NG_CLI_VERSION
 USER node

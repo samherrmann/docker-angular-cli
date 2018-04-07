@@ -32,26 +32,15 @@ in a container.
         }
       }
     ```
-4. Add the following configuration to your `karma.conf.js` to be able to
-   leverage Google Chrome in the container for unit testing:
+4. Modify `karma.conf.js` to use headless Chrome:
 
     ```js
-    browsers: ['customChrome'],
-    customLaunchers: {
-      customChrome: {
-        base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox'
-        ]
-      }
-    }
-    ```
-    The Chrome sandbox needs to be disabled when running inside of a Docker
-    container because Chrome's sandbox requires more permissions than Docker
-    allows by default. If there is a need to run the Chrome sandbox, then the
-    container must be run with the `privileged` flag.
+    browsers: ['ChromeHeadless'],
 
-A full project setup example can be viewed in [this GitHub Compare View](https://github.com/samherrmann/docker-angular-cli/compare/example-app).
+    ```
+
+A full project setup example can be viewed in [this GitHub Compare
+View](https://github.com/samherrmann/docker-angular-cli/compare/example-app).
 
 ### Development Workflow
 Execute Angular CLI commands:
