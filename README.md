@@ -9,7 +9,17 @@ A Docker image for [Angular CLI](https://github.com/angular/angular-cli).
 
 2. Copy the [npm.sh](npm.sh) script into your project's root directory.
 
-3. Use the script to execute Angular CLI commands:
+3. Add the following configuration to `angular-cli.json` to make the app accessible from the
+browser on the host machine.
+    ```json
+      "defaults": {
+        "serve": {
+          "host": "0.0.0.0"
+        }
+      }
+    ```
+
+4. Use the script to execute Angular CLI commands:
     ```sh
     ./npm.sh run ng g m my-module
     ```
@@ -43,7 +53,7 @@ customLaunchers: {
   }
 }
 ```
-Note: The Chrome sandbox needs to be disabled when running inside of a Docker container
+The Chrome sandbox needs to be disabled when running inside of a Docker container
 because Chrome's sandbox requires more permissions than Docker allows by default. If
 there is a need to run the Chrome sandbox, then the container must be run with the
 `privileged` flag.
