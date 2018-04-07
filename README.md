@@ -5,8 +5,10 @@ in a container.
 * Eliminate the need to manually confirm that you are running a version of
   Node.js/npm that is compatible with your version of Angular CLI.
 * Ensure that all developers are running the same version of the build tools.
-* Ensure that the build machine is running the same version of the build tools as the developers.
-* Make switching between projects with different versions of the build tools transparent to the developers.
+* Ensure that the build machine is running the same version of the build tools
+  as the developers.
+* Make switching between projects with different versions of the build tools
+  transparent to the developers.
 * Ensure that builds are reproducible.
 
 ## Usage
@@ -16,6 +18,9 @@ in a container.
     ```
 
 2. Copy the [npm.sh](npm.sh) script into your project's root directory.
+    * Change the `latest` version tag inside the `npm.sh` script to the actual
+      version of the image (Ex: Replace `latest` with `1.6.2`).
+    * Commit it to your version control system.
 
 3. Add the following configuration to `angular-cli.json` to make the app
    accessible from the browser on the host machine.
@@ -72,16 +77,6 @@ Now unit tests can be executed with the following command:
 ```
 Test progress and results can be viewed either in the terminal or in a browser
 at `localhost:9876`, where `9876` is the port configured in `karma.conf.js`.
-
-### Production Projects
-For production projects, I recommend the following:
-
-* Change the `latest` version tag inside the `npm.sh` script to the actual
-  version of the image (Example: Replace `latest` with `1.6.2`).
-* Check the `npm.sh` script into version control.
-
-Following these recommendations ensures that the builds are reproducible by
-always using the same version of the build tools for a given codebase version.
 
 ## Development
 ### Build Image
