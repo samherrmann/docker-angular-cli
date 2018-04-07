@@ -51,6 +51,8 @@ in a container.
     allows by default. If there is a need to run the Chrome sandbox, then the
     container must be run with the `privileged` flag.
 
+A full project setup example can be viewed in [this GitHub Compare View](https://github.com/samherrmann/docker-angular-cli/compare/example-app).
+
 ### Development Workflow
 Execute Angular CLI commands:
 
