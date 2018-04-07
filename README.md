@@ -4,7 +4,7 @@ A Docker image for [Angular CLI](https://github.com/angular/angular-cli).
 ## Usage
 1. Create a new Angular CLI project:
     ```sh
-    docker run -it --rm -v $(pwd):/code samherrmann/angular-cli new my-app
+    docker run -it --rm -v $(pwd):/code --entrypoint ng samherrmann/angular-cli new my-app
     ```
 
 2. Copy the [npm.sh](npm.sh) script into your project's root directory.
