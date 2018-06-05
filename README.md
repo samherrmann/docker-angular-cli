@@ -40,7 +40,7 @@ in a container.
     ```
 
 A full project setup example can be viewed in [this GitHub Compare
-View](https://github.com/samherrmann/docker-angular-cli/compare/example-app).
+View](https://github.com/samherrmann/docker-angular-cli/commit/example-app).
 
 ### Development Workflow
 Execute Angular CLI commands:
