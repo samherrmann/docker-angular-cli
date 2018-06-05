@@ -2,8 +2,8 @@
 # This is a sample script for using the container.
 
 args=()
-[[ $@ == 'start'* ]] && args+=('--publish 4200:4200')
-[[ $@ == 'run test'* ]] && args+=('--publish 9876:9876')
+[[ $@ == 'start'* || $@ == 'run start'* ]] && args+=('--publish 4200:4200')
+[[ $@ == 'test'* || $@ == 'run test'* ]] && args+=('--publish 9876:9876')
 [[ $@ == 'run e2e'* ]] && args+=('--publish 49152:49152')
 
 docker run \
