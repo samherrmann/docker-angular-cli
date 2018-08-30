@@ -42,7 +42,25 @@ in a container.
         flags: ['--headless', '--no-sandbox']
       }
     }
+    ```
 
+5. Modify `protractor.conf.js` to use headless Chrome:
+
+    ```js
+    capabilities: {
+    'browserName': 'chrome',
+      chromeOptions: {
+        args: ['--headless', '--no-sandbox']
+      }
+    }
+    ```
+
+6. Modify the `e2e` script in `package.json`to run e2e tests without updating drivers:
+
+    ```json
+    "e2e": "ng e2e --webdriver-update=false",
+    "postinstall": "npm run webdriver-manager update -- --versions.standalone=2.53.1 --versions.chrome=2.38 --versions.gecko=v0.13.0",
+    "webdriver-manager": "npm explore protractor -- webdriver-manager"
     ```
 
 A full project setup example can be viewed in [this GitHub Compare
@@ -70,6 +88,9 @@ Execute `npm` commands:
 ```
 ```sh
 ./npm.sh run test
+```
+```sh
+./npm.sh run e2e
 ```
 
 ## Development
