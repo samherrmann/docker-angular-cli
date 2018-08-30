@@ -63,9 +63,6 @@ in a container.
     "webdriver-manager": "npm explore protractor -- webdriver-manager"
     ```
 
-A full project setup example can be viewed in [this GitHub Compare
-View](https://github.com/samherrmann/docker-angular-cli/commit/example-app).
-
 ### Development Workflow
 Execute Angular CLI commands:
 
