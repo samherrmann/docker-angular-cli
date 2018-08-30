@@ -1,4 +1,4 @@
-NG_CLI_VERSION="6.1.4"
+NG_CLI_VERSION="6.1.5"
 CHROME_VERSION="65.0.3325.181-1"
 
 docker build \
