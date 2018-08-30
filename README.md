@@ -35,7 +35,13 @@ in a container.
 4. Modify `karma.conf.js` to use headless Chrome:
 
     ```js
-    browsers: ['ChromeHeadless'],
+    browsers: ['customChrome'],
+    customLaunchers: {
+      customChrome: {
+        base: 'ChromeHeadless',
+        flags: ['--headless', '--no-sandbox']
+      }
+    }
 
     ```
 

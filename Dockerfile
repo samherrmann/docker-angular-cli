@@ -19,8 +19,5 @@ ARG NG_CLI_VERSION
 USER node
 RUN npm install -g @angular/cli@$NG_CLI_VERSION
 
-# Add configurations
-COPY scripts/* /usr/local/bin/
-
 WORKDIR /code
 ENTRYPOINT ["npm"]
