@@ -1,9 +1,9 @@
 NG_CLI_VERSION="6.1.5"
-CHROME_VERSION="65.0.3325.181-1"
+CHROMIUM_VERSION="68.0.3440.106-r0"
 
 docker build \
   --build-arg NG_CLI_VERSION=$NG_CLI_VERSION \
-  --build-arg CHROME_VERSION=$CHROME_VERSION \
+  --build-arg CHROMIUM_VERSION=$CHROMIUM_VERSION \
   -t samherrmann/angular-cli .
 
 docker tag samherrmann/angular-cli samherrmann/angular-cli:$NG_CLI_VERSION
