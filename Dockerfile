@@ -13,6 +13,15 @@ RUN apk add --no-cache \
   --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
   chromium=$CHROMIUM_VERSION \
   chromium-chromedriver=$CHROMIUM_VERSION
+
+# Install:
+#   Git   - Git is used by the CLI when creating new projects
+#   Bash  - Bash is needed by webdriver-manager
+RUN apk add --no-cache \
+  bash \
+  git
+COPY .gitconfig /home/node
+
 ENV CHROME_BIN=/usr/bin/chromium-browser \
     CHROME_PATH=/usr/lib/chromium
 
