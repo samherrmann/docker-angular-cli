@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 # Change ownership of the global node modules directory
 # to allow installs without requiring sudo privileges.
@@ -6,20 +6,18 @@ FROM node:8-alpine
 # See: https://docs.npmjs.com/getting-started/fixing-npm-permissions
 RUN chown -R node $(npm config get prefix)
 
-# Install Chromium
+# Install:
+#   Chromium - For running unit tests
+#   Git      - Used by the CLI when creating new projects
+#   Bash     - Needed by webdriver-manager
 ARG CHROMIUM_VERSION
 USER root
 RUN apk add --no-cache \
-  --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-  chromium=$CHROMIUM_VERSION \
-  chromium-chromedriver=$CHROMIUM_VERSION
-
-# Install:
-#   Git   - Git is used by the CLI when creating new projects
-#   Bash  - Bash is needed by webdriver-manager
-RUN apk add --no-cache \
   bash \
+  chromium=$CHROMIUM_VERSION \
+  chromium-chromedriver=$CHROMIUM_VERSION \
   git
+
 COPY .gitconfig /home/node
 
 ENV CHROME_BIN=/usr/bin/chromium-browser \
