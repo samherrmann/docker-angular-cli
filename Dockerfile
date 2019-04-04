@@ -26,7 +26,9 @@ ENV CHROME_BIN=/usr/bin/chromium-browser \
 # Install Angular CLI
 ARG NG_CLI_VERSION
 USER node
-RUN npm install -g @angular/cli@$NG_CLI_VERSION
+RUN npm install -g \
+ @angular/cli@$NG_CLI_VERSION \
+ @angular-devkit/schematics-cli@$NG_SCHEMATICS_VERSION
 
 WORKDIR /code
 ENTRYPOINT ["npm"]
