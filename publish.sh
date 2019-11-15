@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-docker push samherrmann/angular-cli:8.3.19
+source env.sh
+docker push samherrmann/angular-cli:$NG_CLI_VERSION

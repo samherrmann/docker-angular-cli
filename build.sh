@@ -1,6 +1,4 @@
-NG_CLI_VERSION="8.3.19"
-NG_SCHEMATICS_VERSION="0.13.8"
-CHROMIUM_VERSION="72.0.3626.121-r0"
+source env.sh
 
 docker build \
   --build-arg NG_CLI_VERSION=$NG_CLI_VERSION \
