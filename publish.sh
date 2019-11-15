@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker push samherrmann/angular-cli:7.3.2
+docker push samherrmann/angular-cli:8.3.19

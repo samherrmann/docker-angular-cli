@@ -10,14 +10,8 @@ docker run \
   -it \
   --rm \
   -v $(pwd):/code \
+  -e HTTP_PROXY=$HTTP_PROXY \
+  -e HTTPS_PROXY=$HTTPS_PROXY \
+  -e NO_PROXY=$NO_PROXY \
   ${args} \
   samherrmann/angular-cli:latest $@
-
-#################################################
-# Options
-#################################################
-# Proxy Settings:
-#   -e http_proxy=192.168.0.1 \
-#   -e https_proxy=192.168.0.1 \
-#   -e no_proxy=localhost,127.0.0.1,0.0.0.0,::1 \
-##################################################
