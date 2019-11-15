@@ -18,7 +18,7 @@ RUN apk add --no-cache \
   chromium-chromedriver=$CHROMIUM_VERSION \
   git
 
-COPY .gitconfig /home/node
+COPY .gitconfig .angular-config.json /home/node/
 
 ENV CHROME_BIN=/usr/bin/chromium-browser \
     CHROME_PATH=/usr/lib/chromium
