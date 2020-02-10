@@ -49,7 +49,7 @@ in a container.
     ```js
     chromeDriver: '/usr/bin/chromedriver',
     capabilities: {
-    'browserName': 'chrome',
+      browserName: 'chrome',
       chromeOptions: {
         args: ['--headless', '--no-sandbox']
       }
