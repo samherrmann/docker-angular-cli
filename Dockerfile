@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12-alpine3.9
 
 # Change ownership of the global node modules directory
 # to allow installs without requiring sudo privileges.
