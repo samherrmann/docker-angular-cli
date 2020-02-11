@@ -1,0 +1,10 @@
+#!/bin/bash
+
+NG_CLI_VERSION="9.0.1"
+NG_SCHEMATICS_VERSION="0.900.1"
+CHROMIUM_VERSION="72.0.3626.121-r0"
+
+docker build \
+  --build-arg NG_CLI_VERSION=$NG_CLI_VERSION \
+  --build-arg CHROMIUM_VERSION=$CHROMIUM_VERSION \
+  -t samherrmann/angular-cli:$DOCKER_TAG .

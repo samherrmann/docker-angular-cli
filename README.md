@@ -92,8 +92,13 @@ Execute `npm` commands:
 ```
 
 ## Development
-### Build Image
-Run the `./build.sh` script to build an image.
+This project uses Docker Hub to build and publish images. Changes made to this
+repository are built by Docker Hub's automated build system and published as
+follows:
 
-### Publish Image
-Run the `./publish.sh` script to push an image to Docker Hub.
+| Git              | Docker Image                     |
+| ---------------- | -------------------------------- |
+| `master` branch  | `samherrmann/angular-cli:latest` |
+| `v1.2.3` tag     | `samherrmann/angular-cli:v1.2.3` |
+
+See the `hooks` directory for Docker Hub automated build configurations.
