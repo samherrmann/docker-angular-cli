@@ -60,6 +60,8 @@ in a container.
 
     ```json
     "e2e": "ng e2e --webdriver-update=false",
+    "postinstall": "npm run webdriver-manager update -- --versions.standalone=2.53.1 --versions.chrome=2.38 --versions.gecko=v0.13.0",
+    "webdriver-manager": "npm explore protractor -- webdriver-manager"
     ```
 
 ### Development Workflow
