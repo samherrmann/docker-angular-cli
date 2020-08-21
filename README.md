@@ -23,7 +23,7 @@ in a container.
       version of the image (Ex: Replace `latest` with `1.6.2`).
     * Commit it to your version control system.
 
-3. Add the following configuration to `angular-cli.json` to make the app
+3. Add the following configuration to `angular.json` to make the app
    accessible from the browser on the host machine:
     ```json
       "defaults": {
@@ -102,3 +102,16 @@ follows:
 | `v1.2.3` tag     | `samherrmann/angular-cli:v1.2.3` |
 
 See the `hooks` directory for Docker Hub automated build configurations.
+
+### Updating Image
+
+1. Check available versions from resources listed below
+1. Change version tags as desired in `hooks/build`
+1. Commit changes and tag commit with version of Angular CLI (e.g. `v1.2.3`)
+1. Push commit to GitHub with `git push && git push --tags`
+1. Verify new image is published on [Docker Hub](https://hub.docker.com/r/samherrmann/angular-cli/tags)
+
+### Available Versions
+* [Node.js](https://hub.docker.com/_/node)
+* [@angular/cli](https://www.npmjs.com/package/@angular/cli)
+* [@angular-devkit/schematics-cli](https://www.npmjs.com/package/@angular-devkit/schematics-cli)

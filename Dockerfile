@@ -1,4 +1,5 @@
-FROM node:12-alpine3.9
+ARG NODE_VERSION=lts-alpine
+FROM node:$NODE_VERSION
 
 # Change ownership of the global node modules directory
 # to allow installs without requiring sudo privileges.
@@ -10,12 +11,11 @@ RUN chown -R node $(npm config get prefix)
 #   Chromium - For running unit tests
 #   Git      - Used by the CLI when creating new projects
 #   Bash     - Needed by webdriver-manager
-ARG CHROMIUM_VERSION
 USER root
 RUN apk add --no-cache \
   bash \
-  chromium=$CHROMIUM_VERSION \
-  chromium-chromedriver=$CHROMIUM_VERSION \
+  chromium \
+  chromium-chromedriver \
   git
 
 COPY .gitconfig .angular-config.json /home/node/
@@ -25,6 +25,7 @@ ENV CHROME_BIN=/usr/bin/chromium-browser \
 
 # Install Angular CLI
 ARG NG_CLI_VERSION
+ARG NG_SCHEMATICS_VERSION
 USER node
 RUN npm install -g \
  @angular/cli@$NG_CLI_VERSION \
