@@ -59,9 +59,7 @@ in a container.
 6. Modify the `e2e` script in `package.json`to run e2e tests without updating drivers:
 
     ```json
-    "e2e": "ng e2e --webdriver-update=false",
-    "postinstall": "npm run webdriver-manager update -- --versions.standalone=2.53.1 --versions.chrome=2.38 --versions.gecko=v0.13.0",
-    "webdriver-manager": "npm explore protractor -- webdriver-manager"
+    "e2e": "ng e2e --webdriver-update=false"
     ```
 
 ### Development Workflow
