@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NODE_VERSION=12-alpine3.9
-NG_CLI_VERSION=10.0.7
+NG_CLI_VERSION=11.0.2
 NG_SCHEMATICS_VERSION=0.1000.6
 
 docker build \
