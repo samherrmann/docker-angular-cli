@@ -1,4 +1,11 @@
 # Angular CLI
+
+> :warning: This project is deprecated. Consider using the [Visual Studio Code
+> Remote - Containers](https://code.visualstudio.com/docs/remote/containers)
+> extension instead. See
+> [angular-sandbox](https://github.com/samherrmann/angular-sandbox) for an
+> example Angular CLI project that uses the Remote - Containers extension.
+
 A Docker image for running [Angular CLI](https://github.com/angular/angular-cli)
 in a container.
 ## Benefits
